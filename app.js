@@ -22,3 +22,30 @@ const intComp = (capP, int, tem) => {
 test2 = intComp(20000, 2, 2);
 
 console.log(test2);
+
+/*
+
+FUNCION PARACALCULAR EL VALOR PRESENTE
+
+VP = VF/(1+ r)^n
+
+VP = valor presente
+
+VF = Valor futuro
+
+r = renta o interés
+
+n = numerode periodos
+
+*/
+
+const valorPresente = (valorFuturo, renta, periodos) => {
+  //transformamos el porcentaje de la renta a decimales
+  tasaInteresDecimal = renta / 100;
+
+  return valorFuturo / Math.pow(1 + tasaInteresDecimal, periodos);
+};
+
+const testValorPresente = valorPresente(12500, 8.5, 4);
+
+console.log(testValorPresente);
