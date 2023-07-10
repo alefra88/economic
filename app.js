@@ -49,3 +49,31 @@ const valorPresente = (valorFuturo, renta, periodos) => {
 const testValorPresente = valorPresente(12500, 8.5, 4);
 
 console.log(testValorPresente);
+
+/*
+INTERES REAL/INTERES SIMPLE
+
+Ganancia real = ganancia nominal - inflaciòn
+GN= ganancia nominal
+P=capital Principal
+i=interes o renta
+n=periodos
+inf= inflación
+
+FORMULA
+GN = P*(1+i)^n-P
+*/
+
+const GananciaREal = (capitalPrincipal, interes, periodos, inf) => {
+  const tasaInteresNominal = interes / 100,
+    tasaInfDecimal = inf / 100,
+    ajuste = (1 + tasaInteresNominal) / (1 + tasaInfDecimal),
+    tasaNominal = capitalPrincipal * Math.pow(ajuste, periodos),
+    resultado = tasaNominal - capitalPrincipal;
+  return resultado;
+};
+
+const testGananciaReal = GananciaREal(80000, 6, 1, 4);
+
+console.log(testGananciaReal);
+
