@@ -64,7 +64,7 @@ FORMULA
 GN = P*(1+i)^n-P
 */
 
-const GananciaREal = (capitalPrincipal, interes, periodos, inf) => {
+const GananciaReal = (capitalPrincipal, interes, periodos, inf) => {
   const tasaInteresNominal = interes / 100,
     tasaInfDecimal = inf / 100,
     ajuste = (1 + tasaInteresNominal) / (1 + tasaInfDecimal),
@@ -73,7 +73,32 @@ const GananciaREal = (capitalPrincipal, interes, periodos, inf) => {
   return resultado;
 };
 
-const testGananciaReal = GananciaREal(80000, 6, 1, 4);
+const testGananciaReal = GananciaReal(80000, 6, 1, 4);
 
 console.log(testGananciaReal);
 
+/*
+ANUALIDAD VENCIDA
+
+
+VF = VALOR FINAL
+P=CAPITAL PRINCIPAL
+I = INTERES
+N=PERIODOS
+
+VF=r*(1+i)^n-1/i
+
+*/
+
+const anualidadVencida = (capitalPrincipal, interes, periodos) => {
+  const capitalInteresDecimal = interes / 100;
+  let inversion = capitalPrincipal;
+  for (let i = 0; i < periodos; i++) {
+    inversion = inversion * (1 + capitalInteresDecimal);
+  }
+  return inversion;
+};
+
+testAnualidadVencida = anualidadVencida(10000,3,9);
+
+console.log(testAnualidadVencida);
