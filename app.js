@@ -99,6 +99,37 @@ const anualidadVencida = (capitalPrincipal, interes, periodos) => {
   return inversion;
 };
 
-testAnualidadVencida = anualidadVencida(10000,3,9);
+testAnualidadVencida = anualidadVencida(10000, 3, 9);
 
 console.log(testAnualidadVencida);
+
+/*
+DENSIDAD DE COTIZACION
+Densidad de cotizacion = (años cotizados/total de años cotizados)*100
+*/
+
+const densidadCotizacion = (anCotizados, anTotal) => {
+  return (anCotizados / anTotal) * 100;
+};
+
+const testDensidadCotizacion = densidadCotizacion(20, 24);
+
+console.log(testDensidadCotizacion);
+
+/*
+
+PRESUPUESTO FAMILIAR
+
+*/
+
+const presupuestoFamiliar = (ahorroInicial, ...args) => {
+  for (let i = 0; i < args.length; i++) {
+    ahorroInicial -= args[i];
+  }
+  return ahorroInicial;
+};
+
+let ahorroInicio = 17000;
+let testpresupuestoFamiliar = presupuestoFamiliar(17000, 5000,3000,1000,1,1,1,1,1,1,2,2);
+
+console.log(testpresupuestoFamiliar);
